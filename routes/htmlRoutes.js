@@ -3,19 +3,38 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+    db.Item.findAll({}).then(function(dbItem) {
       res.render("index", {
         msg: "Welcome!",
-        examples: dbExamples
+        items: dbItem
       });
     });
   });
 
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
+  app.get("/login", function(req,res){
+    res.render("login");
+  });
+
+  //display adding new item form 
+  app.get("/addItem", function(req,res){
+    res.render("newItem");
+  })
+
+  // Load item for user using user ID NEED TO WORK ON THAT
+  app.get("/userProfile", function(req, res) {
+    db.Item.findAll({}).then(function(dbItem) {
+      res.render("userProfile", {
+        msg: "Welcome!",
+        items: dbItem
+      });
+    });
+  });
+
+  // Load item page and pass in an item by id
+  app.get("/item/:id", function(req, res) {
+    db.Item.findOne({ where: { id: req.params.id } }).then(function(dbItem) {
+      res.render("item", {
+        item: dbItem
       });
     });
   });

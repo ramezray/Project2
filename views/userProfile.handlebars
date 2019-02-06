@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand pt-0 pb-0" href="/"><img src="styles/img/logo1.jpg" alt="HTML5 Icon"
+      style="width:100px;height:80px;"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+    aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/addItem">Add New Item</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Log Out</a>
+      </li>
+    </ul>
+
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row">
+
+    {{#each items}}
+    <div class="card mt-4">
+      <div class="card-body">
+        <h5 class="card-title"><strong>Title</strong>: <span class="text-capitalize">{{this.title}}</span> </h5>
+        <p><strong>ID</strong>: {{this.id}}</p>
+        <p><strong>Category</strong>: {{this.categories}}</p>
+        <p><strong>Description:</strong> {{this.discription}}</p>
+        <p><strong>Price:</strong> {{this.price}}</p>
+        <p><button type="button" class="btn btn-info">Update</button><button type="button" class="btn btn-danger">Delete</button></p>
+      </div>
+    </div>
+    {{/each}}
+
+
+  </div>
+</div>
+<span> <a href="/">← Back To Home</a></span>

@@ -1,5 +1,5 @@
 {
-  "name": "node-handlebars-boilerplate",
+  "name": "handlebars-boilerplate",
   "version": "1.0.0",
   "description": "Project 2 Starter",
   "main": "server.js",
@@ -26,5 +26,17 @@
     "eslint-plugin-prettier": "^2.6.2",
     "mocha": "^5.2.0",
     "prettier": "^1.13.7"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ramezray/Project2.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/ramezray/Project2/issues"
+  },
+  "homepage": "https://github.com/ramezray/Project2#readme"
 }

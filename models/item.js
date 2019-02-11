@@ -8,26 +8,26 @@ module.exports = function (sequelize, DataTypes) {
         },
         title: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1]
             }
         },
         categories: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1]
             }
         },
-        discription: {
+        description: {
             type: DataTypes.TEXT,
-            allowNull: false,
+            allowNull: true,
             len: [1]
         },
         price: {
             type: DataTypes.DECIMAL(50,2),
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1]
             }

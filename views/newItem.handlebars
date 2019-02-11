@@ -1,9 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand pt-0 pb-0" href="/"><img  src="styles/img/logo1.jpg" alt="HTML5 Icon" style="width:100px;height:80px;"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
-      aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <a class="navbar-brand pt-0 pb-0" href="/"><img src="styles/img/logo1.jpg" alt="HTML5 Icon"
+      style="width:100px;height:80px;"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+    aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
@@ -13,8 +14,6 @@
       <li class="nav-item">
         <a class="nav-link" href="/userProfile">Your Profile</a>
       </li>
-
-
       <li class="nav-item">
         <a class="nav-link" href="/login">Log Out</a>
       </li>
@@ -28,53 +27,39 @@
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
         <h2>Adding Item Form!</h2>
-        <form class="clearfix mb-4" action="POST">
+        <form class="clearfix mb-4" action="/api/newItem" method="POST">
           <div class="form-group">
-            <label for="example-text" class="font-weight-bold">Title</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text"
-              placeholder="Enter Title">
+            <label for="title" class="font-weight-bold">Title</label>
+            <input type="title" id="title" name="title" class="form-control" placeholder="Enter Title" value="" />
           </div>
           <div class="form-group">
-            <label for="example-description" class="font-weight-bold">Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description"
+            <label for="description" class="font-weight-bold">Description</label>
+            <textarea class="form-control" id="description" name="description" aria-describedby="description"
               placeholder="Enter Description"></textarea>
           </div>
           <div class="form-group">
-            <label for="example-description" class="font-weight-bold">Category</label>
-            <div class="dropdown">
-              <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                Dropdown
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <a class="dropdown-item" href="#!">Clothing</a>
-                <a class="dropdown-item" href="#!">Furniture</a>
-                <a class="dropdown-item" href="#!">Cars</a>
-                <a class="dropdown-item" href="#!">Electronics</a>
-              </div>
-            </div>
+            <label for="category" class="font-weight-bold">Category</label>
+            <select class="form-control" name="categories" id="">
+              <option class="dropdown-item" value="everything">Select Category</option>
+              <option class="dropdown-item" value="Clothing">Clothing</option>
+              <option class="dropdown-item" value="Furniture">Furniture</option>
+              <option class="dropdown-item" value="Cars">Cars</option>
+              <option class="dropdown-item" value="Electronics">Electronics</option>
+            </select>
           </div>
           <div class="form-group">
-            <label for="example-description" class="font-weight-bold">Price:</label>
-            <input class="form-control" id="example-description" aria-describedby="example-description"
+            <label for="price" class="font-weight-bold">Price:</label>
+            <input class="form-control" id="price" name="price" aria-describedby="price"
               placeholder="Enter Price"></input>
           </div>
           <div class="form-group">
-                <label for="exampleFormControlFile1" class="font-weight-bold">Choose Image</label>
-                <input type="file" class="form-control-file" id="exampleFormControlFile1">
-            </div>
+            <label for="exampleFormControlFile1" class="font-weight-bold">Choose Image</label>
+            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+          </div>
           <button id="submit" class="btn btn-primary float-right">Submit</button>
         </form>
       </div>
     </div>
   </div>
 </div>
-<div class="progress">
-  <div class="progress-bar" role="progressbar" style="width: 20%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
-
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>

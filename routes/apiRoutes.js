@@ -9,9 +9,14 @@ module.exports = function(app) {
   });
 
   // Create a new item
-  app.post("/api/item", function(req, res) {
+  app.post("/api/newItem", function(req, res) {
     db.Item.create(req.body).then(function(dbItem) {
       res.json(dbItem);
+    });
+  });
+  app.post("/api/signUp", function(req, res) {
+    db.User.create(req.body).then(function(dbUser) {
+      res.json(dbUser);
     });
   });
 

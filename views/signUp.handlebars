@@ -1,0 +1,32 @@
+<div class="row mt-5">
+    <div class="col-md-6 m-auto">
+        <div class="card card-body">
+            <h1 class="text-center mb-3">
+                <i class="fas fa-user-plus"></i> Sign Up
+            </h1>
+            <form action="/api/signUp" method="POST">
+                
+                <div class="form-group">
+                    <label for="user_email">User Email</label>
+                    <input type="user_email" id="user_email" name="user_email" class="form-control" placeholder="Enter Email"
+                        value="" />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" class="form-control"
+                        placeholder="Create Password" value="" />
+                </div>
+                <div class="form-group">
+                    <label for="password2">Confirm Password</label>
+                    <input type="password" id="password2" name="password2" class="form-control"
+                        placeholder="Confirm Password"
+                        value="" />
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    Sign Up
+                </button>
+            </form>
+            <p class="lead mt-4">Have An Account? <a href="/login">Login</a></p>
+        </div>
+    </div>
+</div>

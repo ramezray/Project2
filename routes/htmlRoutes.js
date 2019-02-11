@@ -10,9 +10,13 @@ module.exports = function(app) {
       });
     });
   });
-
+//render login HTML page
   app.get("/login", function(req,res){
     res.render("login");
+  });
+  //render signUp HTML page
+  app.get("/signup", function(req,res){
+    res.render("signUp");
   });
 
   //display adding new item form 
@@ -24,16 +28,15 @@ module.exports = function(app) {
   app.get("/userProfile", function(req, res) {
     db.Item.findAll({}).then(function(dbItem) {
       res.render("userProfile", {
-        msg: "Welcome!",
         items: dbItem
       });
     });
   });
 
   // Load item page and pass in an item by id
-  app.get("/item/:id", function(req, res) {
+  app.get("/oneItem/:id", function(req, res) {
     db.Item.findOne({ where: { id: req.params.id } }).then(function(dbItem) {
-      res.render("item", {
+      res.render("oneItem", {
         item: dbItem
       });
     });

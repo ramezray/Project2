@@ -10,12 +10,11 @@ module.exports = function(app) {
 
   // Create a new item
   app.post("/api/newItem", function(req, res) {
-    db.Item.create(req.body).then(function(dbItem) {
-      res.json(dbItem);
-    });
+    db.Item.create(req.body).then(res.redirect("/"));
   });
+
   app.post("/api/signUp", function(req, res) {
-    db.User.create(req.body).then(function(dbUser) {
+    db.User.findAll({}).then(function(dbUser) {
       res.json(dbUser);
     });
   });

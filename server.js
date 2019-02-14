@@ -41,6 +41,9 @@ app.use(express.urlencoded({
 app.use(express.json());
 app.use(express.static("public"));
 
+// Make uploaded images available
+app.use("/images", express.static('upload'));
+
 // Handlebars
 app.engine('handlebars', handlebars({
   extname: 'handlebars',

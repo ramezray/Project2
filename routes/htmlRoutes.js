@@ -35,13 +35,13 @@ module.exports = function(app) {
   // });
 
   // Load item page and pass in an item by id
-  // app.get("/oneItem/:id", function(req, res) {
-  //   db.Item.findOne({ where: { id: req.params.id } }).then(function(dbItem) {
-  //     res.render("oneItem", {
-  //       item: dbItem
-  //     });
-  //   });
-  // });
+  app.get("/oneItem/:id", function(req, res) {
+    db.Item.findOne({ where: { id: req.params.id } }).then(function(dbItem) {
+      res.render("oneItem", {
+        item: dbItem
+      });
+    });
+  });
 
   //Render 404 page for any unmatched routes
   // app.get("*", function(req, res) {

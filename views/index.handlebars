@@ -47,9 +47,10 @@
     {{#each items}}
     <div class="card mb-3">
     <h3 class="card-header text-capitalize">{{this.title}}</h3>
-    <a href="/oneItem/1"><img style="height: 200px; width: 100%; display: block;"
+    <a href="/oneItem/{{this.id}}"><img style="height: 200px; width: 100%; display: block;"
         src="{{this.image}}"
         alt="Card image"></a>
+      
   </div>
   {{/each}}
 </div>

@@ -41,14 +41,14 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
 
-    // Item.associate = function (models) {
-    //     // Link user to his item using foreign key constraint
-    //     Item.belongsTo(models.User, {
-    //         foreignKey: {
-    //             allowNull: false
-    //         }
-    //     });
-    // };
+    Item.associate = function (models) {
+        // Link user to his item using foreign key constraint
+        Item.belongsTo(models.users, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
 
     return Item;
 };

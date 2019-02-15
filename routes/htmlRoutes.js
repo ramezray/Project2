@@ -8,7 +8,7 @@ module.exports = function(app) {
 
   // Load item for user using user ID NEED TO WORK ON THAT
   app.get("/userProfile", function(req, res) {
-    db.Item.findAll({}).then(function(dbItem) {
+    db.Item.findAll({ where:  { userId: req.session.user.id } }).then(function(dbItem) {
       res.render("userProfile", {
         items: dbItem
       });

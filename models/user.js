@@ -23,6 +23,14 @@ var User = sequelize.define('users', {
   }
 });
 
+User.associate = function(models) {
+  // Associating Author with Posts
+  // When an Author is deleted, also delete any associated Posts
+  User.hasMany(models.Item, {
+    onDelete: "cascade"
+  });
+};
+
 User.beforeCreate((user, options) => {
   const salt = bcrypt.genSaltSync();
   user.password = bcrypt.hashSync(user.password, salt);

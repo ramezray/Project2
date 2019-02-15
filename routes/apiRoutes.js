@@ -59,7 +59,15 @@ module.exports = function(app) {
       req.body.image = "images/" + req.file.filename;
     }
     console.log(req.body);
-    db.Item.create(req.body).then(res.redirect("/"));
+    // db.Item.create(req.body).then(res.redirect("/"));
+    db.Item.create({
+      title: req.body.title,
+      categories: req.body.categories,
+      description: req.body.description,
+      price: req.body.price,
+      image: !req.file ? 'placeholder.jpg' : req.body.image,
+      userId: req.session.user.id
+    }).then(res.redirect("/"));
   });
 
   app.post("/api/signUp", function(req, res) {

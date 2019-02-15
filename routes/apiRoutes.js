@@ -56,7 +56,7 @@ module.exports = function(app) {
     if (useS3) {
       req.body.image = req.file.location;
     } else {
-      req.body.image = "images/" + req.file.filename;
+      req.body.image = "/images/" + req.file.filename;
     }
     console.log(req.body);
     db.Item.create(req.body).then(res.redirect("/"));

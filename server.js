@@ -108,11 +108,11 @@ app.get('/', sessionChecker, (req, res) => {
 
 
 // route for user signup
-app.route('/signup')
+app.route('/signUp')
   //.get(sessionChecker, (req, res) => {
   .get((req, res) => {
     //res.sendFile(__dirname + '/public/signup.html');
-    res.render('signup', hbsContent);
+    res.render('signUp', hbsContent);
   })
   .post((req, res) => {
     User.create({
@@ -124,7 +124,7 @@ app.route('/signup')
         res.redirect('/login');
       })
       .catch(error => {
-        res.redirect('/signup');
+        res.redirect('/signUp');
       });
   });
 

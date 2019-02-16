@@ -38,6 +38,13 @@ module.exports = function (sequelize, DataTypes) {
             validate: {
                 len: [1]
             }
+        },
+        sellerContact: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            validate: {
+                len: [1]
+            }
         }
     });
 

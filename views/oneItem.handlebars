@@ -31,14 +31,19 @@
     <div class="container row col-12 justify-content-center">
         <h3>Item That User Clicked</h3>
     </div>
-
-    <div class="container row col-12 ml-5">
-        {{item.title}}
-        {{item.description}}
-        {{item.price}}
-        {{title}}
-        <img src="{{item.image}}">
+    <div class="container row col-12 text-justify">
+        <div class="col-6 ">
+            <div class=" row col-4 badge badge-info"><b>Title</b></div>
+            <div class="col-10">{{item.title}}</div>
+            <div class="row col-4 badge badge-info "><b>Description:</b> </div>
+            <div class="col-10">{{item.description}}</div>
+            <div class="row col-4 badge badge-info"><b>Price: </b> </div>
+            <div class="col-10"><span>$</span>{{item.price}}</div>
+            <div class=" row col-4 badge badge-info"><b>Seller Contact Info:</b> </div><br>
+            <div class="col-10">{{item.sellerContact}}</div>
+        </div>
+        <div class="col-6">
+            <div class="container row col-5 "><img src="{{item.image}}" style="width:250px;height:250px;"></div>
+        </div>
     </div>
 </div>
-{{!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script> --}}

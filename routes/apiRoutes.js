@@ -65,6 +65,7 @@ module.exports = function(app) {
       categories: req.body.categories,
       description: req.body.description,
       price: req.body.price,
+      sellerContact: req.body.sellerContact,
       image: !req.file ? 'placeholder.jpg' : req.body.image,
       userId: req.session.user.id
     }).then(res.redirect("/"));
@@ -77,9 +78,11 @@ module.exports = function(app) {
   });
 
   // Delete an item by id
-  app.delete("/api/item/:id", function(req, res) {
+  app.delete("/userProfile", function(req, res) {
     db.Item.destroy({ where: { id: req.params.id } }).then(function(dbItem) {
-      res.json(dbItem);
+      res.render("/userProfile", {
+        item: dbItem
+      });
     });
   });
-};
+

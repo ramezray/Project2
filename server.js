@@ -9,6 +9,9 @@ var morgan = require('morgan');
 var User = db.users;
 var path = require('path');
 //************************************* */
+//flash msg
+const flash = require("express-flash");
+//************* */
 var app = express();
 var PORT = process.env.PORT || 3000;
 
@@ -53,7 +56,9 @@ app.engine('handlebars', handlebars({
 // app.engine("handlebars",exphbs({defaultLayout: "main"}));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'handlebars');
-// app.set("view engine", "handlebars");
+// ****************flash****************
+app.use(flash());
+
 
 // Routes
 require("./routes/apiRoutes")(app);
@@ -132,22 +137,21 @@ app.route('/login')
   .post((req, res) => {
     var user_email = req.body.user_email,
       password = req.body.password;
-
+    // req.flash("msg", "Invalid Username or Password");
     User.findOne({
       where: {
         user_email: user_email
       }
     }).then(function (user) {
       if (!user) {
+        console.log("line 147");
+        req.flash("msg", "Please Enter Vaild Email and Password");
         res.redirect('/login');
-        // console.log("not found")
       } else if (!user.validPassword(password)) {
         res.redirect('/index');
-        console.log("not found")
       } else {
         req.session.user = user.dataValues;
         res.redirect('/index');
-        console.log("not found")
       }
     });
   });

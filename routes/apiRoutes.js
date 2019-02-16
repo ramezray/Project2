@@ -50,25 +50,28 @@ module.exports = function(app) {
   app.post("/api/newItem", upload.single("myImage"), function(req, res) {
     console.log(req.body);
     console.log(req.file);
-    // req.body contains the text fields
-    // add image path to body
 
-    if (useS3) {
-      req.body.image = req.file.location;
+    var image;
+    if (!req.file) {
+      // If no file was selected we use a placeholder
+      image = "/images/placeholder.png";
+    } else if (useS3) {
+      image = req.file.location;
     } else {
-      req.body.image = "/images/" + req.file.filename;
+      image = "/images/" + req.file.filename;
     }
-    console.log(req.body);
-    // db.Item.create(req.body).then(res.redirect("/"));
+
     db.Item.create({
       title: req.body.title,
       categories: req.body.categories,
       description: req.body.description,
       price: req.body.price,
       sellerContact: req.body.sellerContact,
-      image: !req.file ? 'placeholder.jpg' : req.body.image,
+      image: image,
       userId: req.session.user.id
-    }).then(res.redirect("/"));
+    }).then(function() {
+      res.redirect("/");
+    });
   });
 
   app.post("/api/signUp", function(req, res) {
@@ -85,4 +88,4 @@ module.exports = function(app) {
       });
     });
   });
-
+};

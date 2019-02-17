@@ -15,7 +15,6 @@ Sell Something is a full-stack application that provides a market place for user
 - NPM Body-Parser
 - NPM Method-Override
 - NPM Multer-S3
-- NPM ejs
 
 ## Contributors:
 

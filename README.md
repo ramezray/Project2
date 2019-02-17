@@ -43,7 +43,7 @@ Once you have MySQL installed, you will need to create a database using your myS
            
            3. npm install ENTER
            
-<strong>Once the files have been downloaded to your local machine, navigate to the "config" folder and open up the file named "config.json", then change the "password" field to match the password you set up for your mySQL database. Next, navigate to the "server.js" file and check to make sure the "PORT" that you set-up for your mySQL server matches what's in the file (line 13, currently set at PORT 3000).  Make sure to save the changes for both of these files. You are now ready to run the App!             
+<strong>Once the files have been downloaded to your local machine, navigate to the "config" directory and open up the file named "config.json", then change the "password" field to match the password you set up for your mySQL database. Next, navigate to the "server.js" file and check to make sure the "PORT" that you set-up for your mySQL server matches what's in the file (line 13, currently set at PORT 3000).  Make sure to save the changes for both of these files. You are now ready to run the App!             
                       
            
 ## Running the App:

@@ -64,5 +64,5 @@ Users must register and create login credentials using their email and password,
  <br>
   <img src="https://ramezray.github.io/Project2/public/images/main_screenshot.png" alt="Main Screenshot">
  <br>
-  <img src="https://ramezray.github.io/Project2/public/images/addItem_screenshot.png" alt="addItem Screenshot">
+  <img src="https://ramezray.github.io/Project2/public/images/addItem_screenshot.png" alt="Add Item Screenshot">
  <br>

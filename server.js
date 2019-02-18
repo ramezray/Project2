@@ -106,11 +106,11 @@ app.get('/', sessionChecker, (req, res) => {
 
 
 // route for user signup
-app.route('/signup')
+app.route('/signUp')
   //.get(sessionChecker, (req, res) => {
   .get((req, res) => {
     //res.sendFile(__dirname + '/public/signup.html');
-    res.render('signup', hbsContent);
+    res.render('signUp', hbsContent);
   })
   .post((req, res) => {
     User.create({
@@ -122,7 +122,7 @@ app.route('/signup')
         res.redirect('/login');
       })
       .catch(error => {
-        res.redirect('/signup');
+        res.redirect('/signUp');
       });
   });
 
@@ -143,10 +143,10 @@ app.route('/login')
       if (!user) {
         console.log("line 147");
         var option = {
-          position:"b",
-          duration:"3500"
+          position: "b",
+          duration: "3500"
         };
-        res.flash("Please Enter Vaild Email and Password","error",option);
+        res.flash("Please Enter Vaild Email and Password", "error", option);
         res.redirect('/login');
       } else if (!user.validPassword(password)) {
         res.redirect('/index');
@@ -165,10 +165,10 @@ app.get('/index', (req, res) => {
     hbsContent.user_email = req.session.user.user_email;
     console.log(req.session.user.user_email);
     var option = {
-      position:"t",
-      duration:"3500"
+      position: "t",
+      duration: "3500"
     };
-    res.flash("You are logged In",'info', option);
+    res.flash("You are logged In", 'info', option);
     db.Item.findAll({}).then(function (dbItem) {
       res.render("index", {
         items: dbItem
@@ -186,18 +186,18 @@ app.get('/logout', (req, res) => {
     res.clearCookie('user_sid');
     console.log(JSON.stringify(hbsContent));
     var option = {
-      position:"t",
-      duration:"3500"
+      position: "t",
+      duration: "3500"
     };
-    res.flash("You are logged out!",'info', option)
+    res.flash("You are logged out!", 'info', option)
     res.redirect('/');
   } else {
     res.redirect('/login');
     var option = {
-      position:"t",
-      duration:"3500"
+      position: "t",
+      duration: "3500"
     };
-    res.flash("You are logged out!",'info', option);
+    res.flash("You are logged out!", 'info', option);
     res.redirect('/');
   }
 });
@@ -214,4 +214,3 @@ db.sequelize.sync(syncOptions).then(function () {
   });
 });
 
-module.exports = app;

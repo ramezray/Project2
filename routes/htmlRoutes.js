@@ -12,6 +12,11 @@ module.exports = function(app) {
       res.render("userProfile", {
         items: dbItem
       });
+      var option = {
+        position:"t",
+        duration:"3500"
+      };
+      res.flash("You Can Update OR Delete Your Items!",'warn', option);
     });
   });
 

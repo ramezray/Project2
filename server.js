@@ -168,7 +168,7 @@ app.get('/index', (req, res) => {
       position:"t",
       duration:"3500"
     };
-    res.flash("You are logged In",'info', option)
+    res.flash("You are logged In",'info', option);
     db.Item.findAll({}).then(function (dbItem) {
       res.render("index", {
         items: dbItem
@@ -193,6 +193,12 @@ app.get('/logout', (req, res) => {
     res.redirect('/');
   } else {
     res.redirect('/login');
+    var option = {
+      position:"t",
+      duration:"3500"
+    };
+    res.flash("You are logged out!",'info', option);
+    res.redirect('/');
   }
 });
 

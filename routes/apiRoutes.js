@@ -46,6 +46,11 @@ module.exports = function (app) {
   app.get("/api/item", function (req, res) {
     db.Item.findAll({}).then(function (dbItem) {
       res.json(dbItem);
+      var option = {
+        position:"t",
+        duration:"3500"
+      };
+      res.flash("You are logged In",'info', option);
     });
   });
 

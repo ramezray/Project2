@@ -64,5 +64,5 @@ Users must register and create login credentials using their email and password,
 
 ## Screenshots:
 ![](public/images/login_screenshot.png) 
-![](public/images/Images/main_screenshot.PNG) 
-![](public/images/Images/addItem_screenshot.PNG) 
+![](public/images/Images/main_screenshot.png) 
+![](public/images/Images/addItem_screenshot.png) 

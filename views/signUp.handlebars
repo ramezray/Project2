@@ -1,15 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand pt-0 pb-0" href="/"><img src="styles/img/logo1.jpg" alt="HTML5 Icon"
+            style="width:100px;height:80px;"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+        aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    </div>
+</nav>
 <div class="row mt-5">
     <div class="col-md-6 m-auto">
+        <p class="text-center">
+            <h3>Please Sign In or Sign Up to Use Our App</h3>
+        </p>
         <div class="card card-body">
             <h1 class="text-center mb-3">
                 <i class="fas fa-user-plus"></i> Sign Up
             </h1>
             <form action="/signup" method="POST">
-                
+
                 <div class="form-group">
                     <label for="user_email">User Email</label>
-                    <input type="user_email" id="user_email" name="user_email" class="form-control" placeholder="Enter Email"
-                        value="" />
+                    <input type="user_email" id="user_email" name="user_email" class="form-control"
+                        placeholder="Enter Email" value="" />
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
@@ -19,8 +31,7 @@
                 <div class="form-group">
                     <label for="password2">Confirm Password</label>
                     <input type="password" id="password2" name="password2" class="form-control"
-                        placeholder="Confirm Password"
-                        value="" />
+                        placeholder="Confirm Password" value="" />
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">
                     Sign Up

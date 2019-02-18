@@ -72,6 +72,11 @@ module.exports = function (app) {
       image: !req.file ? 'placeholder.jpg' : req.body.image,
       userId: req.session.user.id
     }).then(function () {
+      var option = {
+        position:"t",
+        duration:"3500"
+      };
+      res.flash("Your Item Successfuly Added!",'info', option)
       res.redirect("/");
     });
   });

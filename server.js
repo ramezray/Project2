@@ -10,7 +10,7 @@ var User = db.users;
 var path = require('path');
 //************************************* */
 //flash msg
-const flash = require("express-flash");
+const flash = require("flash-express");
 //************* */
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -57,7 +57,7 @@ app.engine('handlebars', handlebars({
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'handlebars');
 // ****************flash****************
-app.use(flash(app));
+app.use(flash());
 
 
 // Routes
@@ -85,9 +85,7 @@ app.use((req, res, next) => {
 
 var hbsContent = {
   user_email: '',
-  loggedin: false,
-  title: "You are not logged in today",
-  body: "Hello World"
+  loggedin: false
 };
 
 // middleware function to check for logged-in users
@@ -137,7 +135,6 @@ app.route('/login')
   .post((req, res) => {
     var user_email = req.body.user_email,
       password = req.body.password;
-    // req.flash("msg", "Invalid Username or Password");
     User.findOne({
       where: {
         user_email: user_email
@@ -145,14 +142,17 @@ app.route('/login')
     }).then(function (user) {
       if (!user) {
         console.log("line 147");
-        req.flash("msg", "Please Enter Vaild Email and Password");
+        var option = {
+          position:"b",
+          duration:"3500"
+        };
+        res.flash("Please Enter Vaild Email and Password","error",option);
         res.redirect('/login');
       } else if (!user.validPassword(password)) {
         res.redirect('/index');
       } else {
         req.session.user = user.dataValues;
         res.redirect('/index');
-        req.flash("msg", "Logged In")
       }
     });
   });
@@ -164,12 +164,16 @@ app.get('/index', (req, res) => {
     hbsContent.loggedin = true;
     hbsContent.user_email = req.session.user.user_email;
     console.log(req.session.user.user_email);
+    var option = {
+      position:"t",
+      duration:"3500"
+    };
+    res.flash("You are logged In",'info', option)
     db.Item.findAll({}).then(function (dbItem) {
       res.render("index", {
         items: dbItem
       });
     });
-    // res.render('index', hbsContent);
   } else {
     res.redirect('/login');
   }
@@ -179,10 +183,13 @@ app.get('/index', (req, res) => {
 app.get('/logout', (req, res) => {
   if (req.session.user && req.cookies.user_sid) {
     hbsContent.loggedin = false;
-        // hbsContent.title = "You are logged out!";
-
     res.clearCookie('user_sid');
     console.log(JSON.stringify(hbsContent));
+    var option = {
+      position:"t",
+      duration:"3500"
+    };
+    res.flash("You are logged out!",'info', option)
     res.redirect('/');
   } else {
     res.redirect('/login');

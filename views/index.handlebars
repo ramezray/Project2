@@ -18,10 +18,10 @@
       <li class="nav-item">
         <a class="nav-link" href="/addItem">Add New Item</a>
       </li>
-
       <li class="nav-item">
         <a class="nav-link" href="/logout">Log Out</a>
       </li>
+
     </ul>
     {{!-- <div class="dropdown mr-5" >
         <div class="form-group">
@@ -42,18 +42,14 @@
 <div id="home">
   <div class="container row col-12 justify-content-center">
     <h3>All Items For Sale</h3>
+    <h4></h4>
   </div>
-  <div class="container alert-info">
-    <h4>{{messages.msg}}</h4>
-  </div>
-
   <div class="container row col-12 ml-5">
     {{#each items}}
     <div class="card col-4 mb-3">
       <h3 class="card-header text-capitalize">{{this.title}}</h3>
       <a href="/oneItem/{{this.id}}"><img style="height: 200px; width: 100%; display: block;" src="{{this.image}}"
           alt="Card image"></a>
-
     </div>
     {{/each}}
   </div>

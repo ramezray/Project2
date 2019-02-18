@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand pt-0 pb-0" href="/"><img src="/styles/img/logo1.jpg" alt="HTML5 Icon"
+            style="width:100px;height:80px;"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+        aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/userProfile">Your Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/logout">Log Out</a>
+            </li>
+        </ul>
+    </div>
+    </div>
+</nav>
+
+
+<div id="home">
+    <div class="container">
+        <div class="row">
+            <div class="col-8 offset-2">
+                <h2>Update Item Form!</h2>
+                <form class="clearfix mb-4" action=/item/update/{{item.id}} method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="title" class="font-weight-bold">Title</label>
+                        <textarea type="title" id="title" name="title" class="form-control" placeholder="Enter Title"
+                            >{{item.title}}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="description" class="font-weight-bold">Description</label>
+                        <textarea class="form-control" id="description" name="description"
+                            aria-describedby="description" placeholder="Enter Description">{{item.description}}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="category" class="font-weight-bold">Category</label>
+                        <select class="form-control" name="categories" id="" >
+                            <option class="dropdown-item" selected="selected">{{item.categories}}</option>
+                            <option class="dropdown-item" value="everything">Select Category</option>
+                            <option class="dropdown-item" value="Clothing">Clothing</option>
+                            <option class="dropdown-item" value="Furniture">Furniture</option>
+                            <option class="dropdown-item" value="Cars">Cars</option>
+                            <option class="dropdown-item" value="Electronics">Electronics</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="price" class="font-weight-bold">Price:</label>
+                        <input class="form-control" id="price" name="price" aria-describedby="price"
+                            placeholder="Enter Price" value= {{item.price}}></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="sellerContact" class="font-weight-bold">Your Contact Info</label>
+                        <textarea class="form-control" id="sellerContact" name="sellerContact" 
+                            placeholder="Best Way to Reach You">{{item.sellerContact}}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlFile1" class="font-weight-bold">Choose Image</label>
+                        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="myImage" value= {{item.image}}>
+                    </div>
+                    <button id="submit" class="btn btn-primary float-right">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

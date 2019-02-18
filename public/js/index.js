@@ -1,8 +1,25 @@
-$(document).ready(function(){
-// Click events for the edit and delete buttons
-$(document).on("click", "button.delete", handlePostDelete);
 
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

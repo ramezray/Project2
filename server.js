@@ -57,7 +57,7 @@ app.engine('handlebars', handlebars({
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'handlebars');
 // ****************flash****************
-app.use(flash());
+app.use(flash(app));
 
 
 // Routes
@@ -152,6 +152,7 @@ app.route('/login')
       } else {
         req.session.user = user.dataValues;
         res.redirect('/index');
+        req.flash("msg", "Logged In")
       }
     });
   });
@@ -178,7 +179,8 @@ app.get('/index', (req, res) => {
 app.get('/logout', (req, res) => {
   if (req.session.user && req.cookies.user_sid) {
     hbsContent.loggedin = false;
-    hbsContent.title = "You are logged out!";
+        // hbsContent.title = "You are logged out!";
+
     res.clearCookie('user_sid');
     console.log(JSON.stringify(hbsContent));
     res.redirect('/');
@@ -186,6 +188,7 @@ app.get('/logout', (req, res) => {
     res.redirect('/login');
   }
 });
+
 
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(function () {

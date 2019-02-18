@@ -14,16 +14,8 @@ module.exports = function(app) {
       });
     });
   });
- // DELETE route for deleting posts
- app.delete("/api/posts/:id", function(req, res) {
-  db.Item.destroy({
-    where: {
-      id: req.params.id
-    }
-  }).then(function(dbItem) {
-    res.json(dbItem);
-  });
-});
+
+
 
   // Load item page and pass in an item by id
   app.get("/oneItem/:id", function(req, res) {
@@ -34,8 +26,17 @@ module.exports = function(app) {
     });
   });
 
+  //load update form with data in it
+  app.get("/item/update/:id", function(req, res) {
+    db.Item.findOne({ where: { id: req.params.id } }).then(function(dbItem) {
+      res.render("updateItem", {
+        item: dbItem
+      });
+    });
+  });
+
   //Render 404 page for any unmatched routes
   // app.get("*", function(req, res) {
-  //   res.render("404");
+  //   res.render("/");
   // });
 };

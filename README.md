@@ -9,21 +9,21 @@ Sell Something is a full-stack application that provides a market place for user
 - MySQL
 - Node.js
 - NPM Packages Used:
-    aws-sdk
-    bcrypt
-    body-parser
-    cookie-parser
-    dotenv
-    express
-    express-handlebars
-    express-session
-    flash-express
-    morgan
-    multer
-    multer-s3
-    mysql
-    sequelize
-    sequelize-cli
+    aws-sdk--
+    bcrypt--
+    body-parser--
+    cookie-parser--
+    dotenv--
+    express--
+    express-handlebars--
+    express-session--
+    flash-express--
+    morgan--
+    multer--
+    multer-s3--
+    mysql--
+    sequelize--
+    sequelize-cli--
 
 ## Contributors:
 

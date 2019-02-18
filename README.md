@@ -28,7 +28,7 @@ Sell Something is a full-stack application that provides a market place for user
 - <strong>Wilder Molyneux</strong>
 <hr>
 
-## [Click Here for a Live Demo](https://thawing-reaches-85632.herokuapp.com/)
+## [Click Here for try our app](https://thawing-reaches-85632.herokuapp.com/)
 
 ## Local Setup:
 
@@ -63,13 +63,6 @@ Once you have MySQL installed, you will need to create a database using your myS
 Users must register and create login credentials using their email and password, in order to use the app.  Once login is established, users can browse items currently for sale posted by other users, and also create and post items of their own for sale.  Registered users have access to a profile page which allows them to manage the items they currently have listed for sale.   
 
 ## Screenshots:
-- ![](public/images/login_screenshot.png) 
-- ![](Images/customer.PNG) 
-- ![](Images/customer.PNG) 
-            
- <img src="https://ramezray.github.io/Project2/public/images/login_screenshot.png" alt="Login Screenshot">
- <br>
-  <img src="https://ramezray.github.io/Project2/public/images/main_screenshot.png" alt="Main Screenshot">
- <br>
-  <img src="https://ramezray.github.io/Project2/public/images/addItem_screenshot.png" alt="Add Item Screenshot">
- <br>
+![](public/images/login_screenshot.png) 
+![](public/images/Images/customer.PNG) 
+![](public/images/Images/customer.PNG) 

@@ -63,6 +63,9 @@ Once you have MySQL installed, you will need to create a database using your myS
 Users must register and create login credentials using their email and password, in order to use the app.  Once login is established, users can browse items currently for sale posted by other users, and also create and post items of their own for sale.  Registered users have access to a profile page which allows them to manage the items they currently have listed for sale.   
 
 ## Screenshots:
+- Login Page
 ![](public/images/login_screenshot.png) 
+- Main Page
 ![](public/images/main_screenshot.png) 
+- Add New Item page
 ![](public/images/addItem_screenshot.png) 

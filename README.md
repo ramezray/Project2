@@ -5,17 +5,25 @@
 Sell Something is a full-stack application that provides a market place for users to list and browse items for sale. It uses Node & MySQL to query and route data to the app & Express Handlebars to generate HTML.
 
 ## Technologies Used:
-- HTML
-- CSS
 - Javascript
 - MySQL
 - Node.js
-- NPM Express
-- NPM Express-Handlebars
-- NPM Body-Parser
-- NPM Method-Override
-- NPM Multer-S3
-- NPM ejs
+- NPM Packages Used:
+    aws-sdk
+    bcrypt
+    body-parser
+    cookie-parser
+    dotenv
+    express
+    express-handlebars
+    express-session
+    flash-express
+    morgan
+    multer
+    multer-s3
+    mysql
+    sequelize
+    sequelize-cli
 
 ## Contributors:
 
@@ -25,7 +33,7 @@ Sell Something is a full-stack application that provides a market place for user
 - <strong>Wilder Molyneux</strong>
 <hr>
 
-## [Click Here for a Live Demo](https://thawing-reaches-85632.herokuapp.com/)
+## [Click Here To Try Our App](https://thawing-reaches-85632.herokuapp.com/)
 
 ## Local Setup:
 

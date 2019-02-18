@@ -62,7 +62,7 @@ Users must register and create login credentials, using their email and password
 ## Screenshots:
 - Login Page
 - ![](public/images/login_screenshot.png)
--Main Page
+- Main Page
 - ![](public/images/main_screenshot.png)
 - Add New Item Page
 - ![](public/images/addItem_screenshot.png)

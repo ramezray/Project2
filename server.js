@@ -8,6 +8,7 @@ var session = require('express-session');
 var morgan = require('morgan');
 var User = db.users;
 var path = require('path');
+
 //************************************* */
 //flash msg
 const flash = require("flash-express");
@@ -33,7 +34,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   cookie: {
-    expires: 600000
+    expires: 6000000000
   }
 }));
 
@@ -63,6 +64,7 @@ app.use(flash());
 // Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
+// require("./public/js/index")(app);
 
 var syncOptions = {
   force: false

@@ -1,6 +1,22 @@
-
-
-
+// Delete an item by id
+// $(document).ready(function () {
+//     $("#delete").on("click", function () {
+//         app.delete("/api/item/:id", function (req, res) {
+//             db.Item.destroy({
+//                 where: {
+//                     id: req.params.id
+//                 }
+//             }).then(function () {
+//                 res.redirect("/userProfile");
+//                 var option = {
+//                     position: "t",
+//                     duration: "3500"
+//                 };
+//                 res.flash("Your Item Successfuly Deleted!", 'info', option)
+//             });
+//         });
+//     });
+// });
 
 
 

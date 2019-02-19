@@ -32,12 +32,12 @@
                     <div class="form-group">
                         <label for="title" class="font-weight-bold">Title</label>
                         <textarea type="title" id="title" name="title" class="form-control" placeholder="Enter Title"
-                            >{{item.title}}</textarea>
+                            required>{{item.title}}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="description" class="font-weight-bold">Description</label>
                         <textarea class="form-control" id="description" name="description"
-                            aria-describedby="description" placeholder="Enter Description">{{item.description}}</textarea>
+                            aria-describedby="description" placeholder="Enter Description" required>{{item.description}}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="category" class="font-weight-bold">Category</label>
@@ -52,19 +52,19 @@
                     </div>
                     <div class="form-group">
                         <label for="price" class="font-weight-bold">Price:</label>
-                        <input class="form-control" id="price" name="price" aria-describedby="price"
+                        <input required class="form-control" id="price" name="price" aria-describedby="price"
                             placeholder="Enter Price" value= {{item.price}}></input>
                     </div>
                     <div class="form-group">
                         <label for="sellerContact" class="font-weight-bold">Your Contact Info</label>
                         <textarea class="form-control" id="sellerContact" name="sellerContact" 
-                            placeholder="Best Way to Reach You">{{item.sellerContact}}</textarea>
+                            placeholder="Best Way to Reach You" required>{{item.sellerContact}}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlFile1" class="font-weight-bold">Choose Image</label>
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="myImage" value= {{item.image}}>
+                        <input required type="file" class="form-control-file" id="exampleFormControlFile1" name="myImage" value= {{item.image}}>
                     </div>
-                    <button id="submit" class="btn btn-primary float-right">Submit</button>
+                    <button id="submit" class="btn btn-info float-right">Update</button>
                 </form>
             </div>
         </div>

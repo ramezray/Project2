@@ -44,7 +44,7 @@ var upload = multer({
 module.exports = function (app) {
   // Get all items
   app.get("/api/item", function (req, res) {
-    
+
     db.Item.findAll({}).then(function (dbItem) {
       res.json(dbItem);
       var option = {
@@ -53,7 +53,7 @@ module.exports = function (app) {
       };
       res.flash("You are logged In", 'info', option);
     });
-    
+
   });
 
   // This post needs to be handled by multer for the file upload
@@ -95,45 +95,32 @@ module.exports = function (app) {
     });
   });
 
-  // Delete an item by id
-  app.delete("/api/item/:id", function (req, res) {
-    db.Item.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(function (dbItem) {
-      res.json(dbItem);
-    });
-  });
   
 
 
-
-
   //update item
-  // app.post("/item/update/:id", upload.single("myImage"), function (req, res) {
-  //   // console.log(req.body);
-  //   // console.log(req.file);
-  //   console.log(req.params.Item.id);
+  app.post("/item/update/:id", upload.single("myImage"), function (req, res) {
+    if (useS3) {
+      req.body.image = req.file.location;
+    } else {
+      req.body.image = "/images/" + req.file.filename;
+    }
+    console.log(req.body);
 
-  //   // req.body contains the text fields
-  //   // add image path to body
-
-  //   // if (useS3) {
-  //   //   req.body.image = req.file.location;
-  //   // } else {
-  //   //   req.body.image = "/images/" + req.file.filename;
-  //   // }
-  //   console.log(req.body);
-  //   db.Item.update(req.body,
-  //     {
-  //       where: {
-  //         title: req.body.title
-  //       }
-  //     })
-  //     .then(function(dbItem) {
-  //       res.json(dbItem);
-  //     });
-  // });
+    db.Item.update(req.body, {
+        where: {
+          id: req.params.id
+        }
+      })
+      .then(function () {
+        res.redirect("/userProfile");
+        var option = {
+          position: "t",
+          duration: "3500"
+        };
+        res.flash("Your Item Successfuly Updated!", 'info', option)
+        // res.json(dbItem);
+      });
+  });
 
 };

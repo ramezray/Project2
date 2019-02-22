@@ -5,6 +5,7 @@
 Sell Something is a full-stack application that provides a market place for users to list and browse items for sale. It uses Node & MySQL to query and route data to the app & Express Handlebars to generate HTML.
 
 ## Technologies Used:
+<<<<<<< HEAD
 - HTML
 - CSS
 - Javascript
@@ -19,6 +20,27 @@ Sell Something is a full-stack application that provides a market place for user
 - NPM cookie-parser
 - NPM cookie-parser
 - NPM sequelize
+=======
+- Javascript
+- MySQL
+- Node.js
+- NPM Packages Used:
+    aws-sdk--
+    bcrypt--
+    body-parser--
+    cookie-parser--
+    dotenv--
+    express--
+    express-handlebars--
+    express-session--
+    flash-express--
+    morgan--
+    multer--
+    multer-s3--
+    mysql--
+    sequelize--
+    sequelize-cli--
+>>>>>>> 695f81d9ce73ee9440608d85c1a9c38d7bbeb391
 
 ## Contributors:
 
@@ -28,7 +50,11 @@ Sell Something is a full-stack application that provides a market place for user
 - <strong>Wilder Molyneux</strong>
 <hr>
 
+<<<<<<< HEAD
 ## [Click Here to Try Our App](https://thawing-reaches-85632.herokuapp.com/)
+=======
+## [Click Here To Try Our App](https://thawing-reaches-85632.herokuapp.com/)
+>>>>>>> 695f81d9ce73ee9440608d85c1a9c38d7bbeb391
 
 ## Local Setup:
 
@@ -46,7 +72,11 @@ Once you have MySQL installed, you will need to create a database using your myS
            
            3. npm install ENTER
            
+<<<<<<< HEAD
 <strong>Once the files have been downloaded to your local machine, navigate to the "config" directory and open up the file named "config.json", then change the "password" field to match the password you set up for your mySQL database. Next, navigate to the "server.js" file and check to make sure the "PORT" that you set-up for your mySQL server matches what's in the file (line 13, currently set at PORT 3000).  Make sure to save the changes for both of these files. You are now ready to run the App!             
+=======
+<strong>Once the files have been downloaded to your local machine, navigate to the "config" folder and open up the file named "config.json", then change the "password" field to match the password you set up for your mySQL database. Next, navigate to the "server.js" file and check to make sure the "PORT" that you set-up for your mySQL server matches what's in the file (line 13, currently set at PORT 3000).  Make sure to save the changes for both of these files. You are now ready to run the App!             
+>>>>>>> 695f81d9ce73ee9440608d85c1a9c38d7bbeb391
                       
            
 ## Running the App:
@@ -60,6 +90,7 @@ Once you have MySQL installed, you will need to create a database using your myS
 
 ## Using the App:
 
+<<<<<<< HEAD
 Users must register and create login credentials using their email and password, in order to use the app.  Once login is established, users can browse items currently for sale posted by other users, and also create and post items of their own for sale.  Registered users have access to a profile page which allows them to manage the items they currently have listed for sale.   
 
 ## Screenshots:
@@ -69,3 +100,21 @@ Users must register and create login credentials using their email and password,
 ![](public/images/main_screenshot.png) 
 - Add New Item page
 ![](public/images/addItem_screenshot.png) 
+=======
+Users must register and create login credentials, using their email and password, in order to use the app.  Once login is established, users can browse items currently for sale posted by other users, and also create and post items of their own for sale.  Registered users have access to a profile page which allows them to manage the items they currently have listed for sale.   
+
+## Screenshots:
+- Login Page
+- ![](public/images/login_screenshot.png)
+- Main Page
+- ![](public/images/main_screenshot.png)
+- Add New Item Page
+- ![](public/images/addItem_screenshot.png)
+            
+ <img src="https://ramezray.github.io/Project2/public/images/login_screenshot.png" alt="Login Screenshot">
+ <br>
+  <img src="https://ramezray.github.io/Project2/public/images/main_screenshot.png" alt="Login Screenshot">
+ <br>
+  <img src="https://ramezray.github.io/Project2/public/images/addItem_screenshot.png" alt="Login Screenshot">
+ <br>
+>>>>>>> 695f81d9ce73ee9440608d85c1a9c38d7bbeb391

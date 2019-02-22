@@ -6,7 +6,6 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var morgan = require('morgan');
-var User = db.users;
 var path = require('path');
 
 //************************************* */
@@ -83,125 +82,6 @@ app.use((req, res, next) => {
     res.clearCookie('user_sid');
   }
   next();
-});
-
-var hbsContent = {
-  user_email: '',
-  loggedin: false
-};
-
-// middleware function to check for logged-in users
-var sessionChecker = (req, res, next) => {
-  if (req.session.user && req.cookies.user_sid) {
-
-    res.redirect('/index');
-  } else {
-    next();
-  }
-};
-
-
-// route for Home-Page
-app.get('/', sessionChecker, (req, res) => {
-  res.redirect('/login');
-});
-
-
-// route for user signup
-app.route('/signUp')
-  //.get(sessionChecker, (req, res) => {
-  .get((req, res) => {
-    //res.sendFile(__dirname + '/public/signup.html');
-    res.render('signUp', hbsContent);
-  })
-  .post((req, res) => {
-    User.create({
-        user_email: req.body.user_email,
-        password: req.body.password
-      })
-      .then(user => {
-        req.session.user = user.dataValues;
-        res.redirect('/login');
-      })
-      .catch(error => {
-        res.redirect('/signUp');
-      });
-  });
-
-
-// route for user Login
-app.route('/login')
-  .get(sessionChecker, (req, res) => {
-    res.render('login', hbsContent);
-  })
-  .post((req, res) => {
-    var user_email = req.body.user_email,
-      password = req.body.password;
-    User.findOne({
-      where: {
-        user_email: user_email
-      }
-    }).then(function (user) {
-      if (!user) {
-        console.log("line 147");
-        var option = {
-          position: "b",
-          duration: "3500"
-        };
-        res.flash("Please Enter Vaild Email and Password", "error", option);
-        res.redirect('/login');
-      } else if (!user.validPassword(password)) {
-        res.redirect('/index');
-      } else {
-        req.session.user = user.dataValues;
-        res.redirect('/index');
-      }
-    });
-  });
-
-
-// route for user's index
-app.get('/index', (req, res) => {
-  if (req.session.user && req.cookies.user_sid) {
-    hbsContent.loggedin = true;
-    hbsContent.user_email = req.session.user.user_email;
-    console.log(req.session.user.user_email);
-    var option = {
-      position: "t",
-      duration: "3500"
-    };
-    res.flash("You are logged In", 'info', option);
-    db.Item.findAll({}).then(function (dbItem) {
-      res.render("index", {
-        items: dbItem
-      });
-    });
-  } else {
-    res.redirect('/login');
-  }
-});
-
-// route for user logout
-app.get('/logout', (req, res) => {
-  if (req.session.user && req.cookies.user_sid) {
-    hbsContent.loggedin = false;
-    res.clearCookie('user_sid');
-    console.log(JSON.stringify(hbsContent));
-    var option = {
-      position: "t",
-      duration: "3500"
-    };
-    res.flash("You are logged out!", 'info', option)
-    res.redirect('/');
-  } else {
-    res.redirect('/login');
-    var option = {
-      position: "t",
-      duration: "3500"
-    };
-    res.flash("You are logged out!", 'info', option);
-    res.redirect('/');
-  }
 });
 
 

@@ -33,7 +33,7 @@
     </div>
     <div class="container row col-12 text-justify">
         <div class="col-2">
-            
+
         </div>
         <div class="col-4 float-right ">
             <div class=" row col-4 badge badge-info"><b>Title</b></div>
@@ -43,7 +43,9 @@
             <div class="row col-4 badge badge-info"><b>Price: </b> </div>
             <div class="col-10"><span>$</span>{{item.price}}</div>
             <div class=" row col-4 badge badge-info"><b>Seller Contact Info:</b> </div><br>
-            <div class="col-10">{{item.sellerContact}}</div>
+            <div class="col-10" id="sellerInfo">{{item.sellerContact}} <button class="btn btn-info" data-clipboard-target="#sellerInfo">
+                    Copt Seller Info
+                </button></div>
         </div>
         <div class="col-6">
             <div class="container row col-5 "><img src="{{item.image}}" style="width:250px;height:250px;"></div>

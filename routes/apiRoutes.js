@@ -2,7 +2,22 @@ var db = require("../models");
 var multer = require("multer");
 var aws = require("aws-sdk");
 var multerS3 = require("multer-s3");
-let itemID = require("../models/item")
+var User = db.users;
+
+// middleware function to check for logged-in users
+var sessionChecker = (req, res, next) => {
+  if (req.session.user && req.cookies.user_sid) {
+
+    res.redirect('/index');
+  } else {
+    next();
+  }
+};
+
+var hbsContent = {
+  user_email: '',
+  loggedin: false
+};
 
 var s3 = new aws.S3({
   accessKeyId: process.env.S3_KEY,
@@ -95,7 +110,24 @@ module.exports = function (app) {
     });
   });
 
-  
+//delete item
+app.post("/",function (req, res) {
+ db.Item.destroy(req.body, {
+      where: {
+        id: req.params.id
+      }
+    })
+    .then(function () {
+      res.redirect("/");
+      var option = {
+        position: "t",
+        duration: "3500"
+      };
+      res.flash("Your Item Successfuly Deleted!", 'info', option)
+      // res.json(dbItem);
+    });
+});
+
 
 
   //update item
@@ -122,5 +154,53 @@ module.exports = function (app) {
         // res.json(dbItem);
       });
   });
+
+  // route for user signup
+  app.route('/signUp')
+    .get((req, res) => {
+      res.render('signUp', hbsContent);
+    })
+    .post((req, res) => {
+      User.create({
+          user_email: req.body.user_email,
+          password: req.body.password
+        })
+        .then(user => {
+          req.session.user = user.dataValues;
+          res.redirect('/login');
+        })
+        .catch(error => {
+          res.redirect('/signUp');
+        });
+    });
+  // route for user Login
+  app.route('/login')
+    .get(sessionChecker, (req, res) => {
+      res.render('login', hbsContent);
+    })
+    .post((req, res) => {
+      var user_email = req.body.user_email,
+        password = req.body.password;
+      User.findOne({
+        where: {
+          user_email: user_email
+        }
+      }).then(function (user) {
+        if (!user) {
+          console.log("line 147");
+          var option = {
+            position: "b",
+            duration: "3500"
+          };
+          res.flash("Please Enter Vaild Email and Password", "error", option);
+          res.redirect('/login');
+        } else if (!user.validPassword(password)) {
+          res.redirect('/index');
+        } else {
+          req.session.user = user.dataValues;
+          res.redirect('/index');
+        }
+      });
+    });
 
 };
